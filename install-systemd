@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+
+# Install and enable the BC deaths-by-CHSA systemd service and timer.
+#
+# The systemd configuration is version-controlled in the repository as
+# templates under systemd/. This script renders the service template with
+# the current repository path, user, and home directory, then installs the
+# generated units under /etc/systemd/system/.
+#
+# Generated systemd units:
+#
+#   /etc/systemd/system/bc-deaths-by-chsa.service
+#   /etc/systemd/system/bc-deaths-by-chsa.timer
+#
+# The timer runs the deployment at 03:00 on the second day of every month.
+#
+# Usage:
+#
+#   ./install-systemd
+#
+# Requirements:
+#
+#   - Bash
+#   - systemd
+#   - sudo privileges
+#   - An executable ./deploy script
+#
+# The operation is idempotent. Running this script again replaces the
+# installed units with the current repository templates.
+
+set -euo pipefail
+
+# Resolve the repository directory from the location of this script.
+# This makes installation independent of the caller's current directory.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$SCRIPT_DIR"
+
+USER_NAME="$(id -un)"
+HOME_DIR="$HOME"
+
+SERVICE_NAME="bc-deaths-by-chsa.service"
+TIMER_NAME="bc-deaths-by-chsa.timer"
+
+SERVICE_TEMPLATE="$PROJECT_DIR/systemd/$SERVICE_NAME.template"
+TIMER_TEMPLATE="$PROJECT_DIR/systemd/$TIMER_NAME.template"
+
+SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME"
+TIMER_FILE="/etc/systemd/system/$TIMER_NAME"
+
+if [[ ! -d /run/systemd/system ]]; then
+    echo "Error: systemd does not appear to be running on this system." >&2
+    exit 1
+fi
+
+if [[ ! -f "$SERVICE_TEMPLATE" ]]; then
+    echo "Error: service template not found: $SERVICE_TEMPLATE" >&2
+    exit 1
+fi
+
+if [[ ! -f "$TIMER_TEMPLATE" ]]; then
+    echo "Error: timer template not found: $TIMER_TEMPLATE" >&2
+    exit 1
+fi
+
+if [[ ! -x "$PROJECT_DIR/deploy" ]]; then
+    echo "Error: deploy script is missing or not executable:" >&2
+    echo "  $PROJECT_DIR/deploy" >&2
+    exit 1
+fi
+
+echo "==> Installing BC deaths-by-CHSA systemd configuration"
+echo "    Project: $PROJECT_DIR"
+echo "    User:    $USER_NAME"
+echo "    Home:    $HOME_DIR"
+
+echo "==> Rendering service unit"
+
+# Escape characters that are significant in a sed replacement string.
+# This allows paths containing '&' or the sed delimiter to be substituted
+# safely rather than producing a malformed unit.
+escape_sed_replacement() {
+    printf '%s' "$1" | sed 's/[&|\\]/\\&/g'
+}
+
+PROJECT_DIR_ESCAPED="$(escape_sed_replacement "$PROJECT_DIR")"
+USER_NAME_ESCAPED="$(escape_sed_replacement "$USER_NAME")"
+HOME_DIR_ESCAPED="$(escape_sed_replacement "$HOME_DIR")"
+
+sed \
+    -e "s|__PROJECT_DIR__|$PROJECT_DIR_ESCAPED|g" \
+    -e "s|__USER__|$USER_NAME_ESCAPED|g" \
+    -e "s|__HOME__|$HOME_DIR_ESCAPED|g" \
+    "$SERVICE_TEMPLATE" |
+    sudo tee "$SERVICE_FILE" >/dev/null
+
+echo "==> Installing timer unit"
+sudo cp -- "$TIMER_TEMPLATE" "$TIMER_FILE"
+
+echo "==> Reloading systemd configuration"
+sudo systemctl daemon-reload
+
+echo "==> Enabling timer"
+sudo systemctl enable "$TIMER_NAME"
+
+echo "==> Starting timer"
+sudo systemctl start "$TIMER_NAME"
+
+echo
+echo "==> Installation complete"
+echo
+
+systemctl list-timers "$TIMER_NAME" --no-pager
+
+echo
+echo "To run the deployment immediately:"
+echo "  sudo systemctl start $SERVICE_NAME"
+
+echo
+echo "To view deployment logs:"
+echo "  journalctl -u $SERVICE_NAME"
+
+echo
+echo "To view the timer:"
+echo "  systemctl status $TIMER_NAME"

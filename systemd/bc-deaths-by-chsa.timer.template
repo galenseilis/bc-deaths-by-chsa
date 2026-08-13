@@ -1,0 +1,17 @@
+[Unit]
+Description=Monthly BC deaths by CHSA dataset update
+
+[Timer]
+
+# Run at 03:00 on the second day of every month.
+OnCalendar=*-*-02 03:00:00
+
+# If the machine was powered off when the scheduled execution was due,
+# run the missed execution when the machine next starts.
+Persistent=true
+
+# This timer activates the deployment service.
+Unit=bc-deaths-by-chsa.service
+
+[Install]
+WantedBy=timers.target

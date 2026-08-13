@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# Uninstall the BC deaths-by-CHSA systemd service and timer.
+#
+# This script reverses the machine-level changes made by install-systemd.
+# It stops and disables the timer, stops an active deployment service if
+# necessary, removes the generated systemd units, and reloads systemd.
+#
+# Removed files:
+#
+#   /etc/systemd/system/bc-deaths-by-chsa.service
+#   /etc/systemd/system/bc-deaths-by-chsa.timer
+#
+# This script does NOT:
+#
+#   - remove the Git repository
+#   - remove generated datasets
+#   - remove cached PDFs
+#   - modify Git configuration
+#   - remove Rust or Cargo
+#   - remove the version-controlled systemd templates
+#
+# Usage:
+#
+#   ./uninstall-systemd
+#
+# Requirements:
+#
+#   - Bash
+#   - systemd
+#   - sudo privileges
+#
+# The operation is idempotent and can safely be run even when the units
+# have already been stopped, disabled, or removed.
+
+set -euo pipefail
+
+# Resolve the repository directory from the location of this script.
+# This is primarily used for clear status messages and ensures that the
+# script always refers to the templates belonging to this repository.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$SCRIPT_DIR"
+
+SERVICE_NAME="bc-deaths-by-chsa.service"
+TIMER_NAME="bc-deaths-by-chsa.timer"
+
+SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME"
+TIMER_FILE="/etc/systemd/system/$TIMER_NAME"
+
+if [[ ! -d /run/systemd/system ]]; then
+    echo "Error: systemd does not appear to be running on this system." >&2
+    exit 1
+fi
+
+echo "==> Uninstalling BC deaths-by-CHSA systemd configuration"
+echo "    Project: $PROJECT_DIR"
+
+# Stop the deployment service if it is currently running. Normally it is
+# inactive because it is a oneshot service, but handling an active instance
+# makes uninstallation safe during a manual or scheduled deployment.
+if sudo systemctl is-active --quiet "$SERVICE_NAME"; then
+    echo "==> Stopping $SERVICE_NAME"
+    sudo systemctl stop "$SERVICE_NAME"
+else
+    echo "==> Deployment service is not running"
+fi
+
+# Stop the timer before removing its unit file.
+if sudo systemctl is-active --quiet "$TIMER_NAME"; then
+    echo "==> Stopping $TIMER_NAME"
+else
+    echo "==> Timer is not running"
+fi
+
+sudo systemctl stop "$TIMER_NAME" 2>/dev/null || true
+
+# Disable the timer so it cannot be started automatically after reboot.
+if sudo systemctl is-enabled --quiet "$TIMER_NAME" 2>/dev/null; then
+    echo "==> Disabling $TIMER_NAME"
+    sudo systemctl disable "$TIMER_NAME"
+else
+    echo "==> Timer is not enabled"
+fi
+
+echo "==> Removing generated service unit"
+sudo rm -f -- "$SERVICE_FILE"
+
+echo "==> Removing generated timer unit"
+sudo rm -f -- "$TIMER_FILE"
+
+echo "==> Reloading systemd configuration"
+sudo systemctl daemon-reload
+
+echo
+echo "==> Uninstallation complete"
+echo
+echo "The repository was not modified."
+echo "Version-controlled systemd templates remain in:"
+echo "  $PROJECT_DIR/systemd/"
+echo
+echo "Dataset and cached PDFs were not modified."

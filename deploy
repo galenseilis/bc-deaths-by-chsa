@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Update and publish the BC deaths-by-CHSA dataset.
+#
+# This script performs the complete dataset publishing workflow:
+#
+#   1. Require a clean Git working tree.
+#   2. Switch to master.
+#   3. Rebase master onto the latest origin/master.
+#   4. Regenerate the dataset using ./run.
+#   5. Stage the generated CSV files.
+#   6. Commit changes if the dataset changed.
+#   7. Push master to origin.
+#
+# Usage:
+#
+#   ./deploy
+#
+# The script is designed for both manual execution and unattended execution
+# by systemd. It never stages arbitrary repository changes and exits
+# immediately when an operation fails.
+
+set -euo pipefail
+
+# Resolve the repository directory from the location of this script rather
+# than relying on the caller's current working directory.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Never allow an automated deployment to incorporate unrelated local work.
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "Error: working tree has uncommitted changes." >&2
+    echo "Commit or discard the existing changes before deploying." >&2
+    exit 1
+fi
+
+echo "==> Switching to master"
+git switch master
+
+echo "==> Updating master from origin"
+git pull --rebase origin master
+
+echo "==> Regenerating dataset"
+./run
+
+echo "==> Staging generated CSV files"
+
+git add -- \
+    data/out/bc_deaths_by_chsa_long.csv \
+    data/out/bc_deaths_by_chsa_wide.csv
+
+# A successful run does not necessarily produce new data. Avoid creating
+# empty commits when the source reports have not changed.
+if git diff --cached --quiet; then
+    echo "==> Dataset is unchanged; nothing to commit."
+    exit 0
+fi
+
+echo "==> Committing dataset changes"
+git commit -m "Update BC deaths by CHSA dataset"
+
+echo "==> Pushing master"
+git push origin master
+
+echo "==> Deployment complete"
