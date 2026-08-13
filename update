@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Update the repository, rebuild the BC deaths-by-CHSA dataset, and
+# publish the resulting changes to the master branch.
+#
+# Workflow:
+#   1. Switch to master.
+#   2. Rebase onto the latest origin/master.
+#   3. Regenerate the dataset with ./run.
+#   4. Stage the generated data.
+#   5. Commit the changes.
+#   6. Push master to origin.
+#
+# Usage:
+#   ./deploy
+#
+# Requirements:
+#   - Bash
+#   - Git
+#   - Rust/Cargo
+#   - Internet access for Git and BC report downloads
+#
+# This script assumes that:
+#   - origin points to the canonical remote repository.
+#   - master is the deployment branch.
+#   - ./run regenerates the project's output data.
+#   - generated files are intentionally committed to Git.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "==> Switching to master"
+git switch master
+
+echo "==> Updating master from origin"
+git pull --rebase origin master
+
+echo "==> Regenerating dataset"
+./run
+
+echo "==> Staging generated files"
+git add data/
+
+echo "==> Checking for changes"
+if git diff --cached --quiet; then
+    echo "No changes to commit."
+    exit 0
+fi
+
+echo "==> Committing changes"
+git commit -m "Update BC deaths by CHSA dataset"
+
+echo "==> Pushing master"
+git push origin master
+
+echo "==> Deployment complete"
