@@ -37,6 +37,7 @@ You can also run it directly with Cargo during development: `cargo run --release
 ## Usage
 
 By default, the program:
+
     - starts at 2007.
     - ends at the current year.
     - catches PDFs in `data/pdfs`.
@@ -111,6 +112,7 @@ year,chsa_code,chsa_name,month,deaths
 ```
 
 The columns are:
+
     - year — report year
     - chsa_code — four-digit CHSA code
     - chsa_name — CHSA name
@@ -163,6 +165,7 @@ Community Health Service Area | Jan | Feb | ... | Dec | Total
 but extracted PDF text can instead arrange the values into vertical blocks.
 
 The parser therefore:
+
     - Extracts text from the PDF.
     - Splits the extracted text into pages.
     - Locates the CHSA rows using their four-digit codes.
@@ -208,6 +211,7 @@ The cached PDFs are source artifacts and can be deleted and regenerated at any t
 See the `Cargo.toml` for the depedendency list.
 
 The generated records are sorted by:
+
     1. year
     2. CHSA code
     3. month
