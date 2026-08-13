@@ -25,8 +25,8 @@ The tool retrieves reports published by the Government of British Columbia, cach
 
 
 ```bash
-git clone ...
-cd <repository_directory>
+git clone  https://github.com/galenseilis/bc-deaths-by-chsa.git
+cd <repository_directory>  
 cargo build --release
 ```
 
