@@ -6,20 +6,11 @@ After=network-online.target
 [Service]
 Type=oneshot
 
-# Run the deployment as the user who owns the repository.
 User=__USER__
-
-# Git, Cargo, and the deployment scripts operate relative to the repository.
 WorkingDirectory=__PROJECT_DIR__
 
-# systemd does not inherit the user's interactive shell environment.
-# Explicitly provide HOME and the Cargo bin directory so rustup-managed
-# installations work when invoked by systemd.
 Environment="HOME=__HOME__"
 Environment="PATH=__HOME__/.cargo/bin:/usr/local/bin:/usr/bin:/bin"
-
-# Prevent Git from waiting indefinitely for interactive credentials.
-# Authentication must therefore already be configured for unattended use.
 Environment="GIT_TERMINAL_PROMPT=0"
 
 ExecStart=__PROJECT_DIR__/deploy
