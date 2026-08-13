@@ -38,10 +38,10 @@ You can also run it directly with Cargo during development: `cargo run --release
 
 By default, the program:
 
-    - starts at 2007.
-    - ends at the current year.
-    - catches PDFs in `data/pdfs`.
-    - writes CSV output to `data/out`.
+- starts at 2007.
+- ends at the current year.
+- catches PDFs in `data/pdfs`.
+- writes CSV output to `data/out`.
 
 ### Specify a year range
 
@@ -113,11 +113,11 @@ year,chsa_code,chsa_name,month,deaths
 
 The columns are:
 
-    - year — report year
-    - chsa_code — four-digit CHSA code
-    - chsa_name — CHSA name
-    - month — three-letter month abbreviation
-    - deaths — number of deaths reported for that CHSA and month
+- year — report year
+- chsa_code — four-digit CHSA code
+- chsa_name — CHSA name
+- month — three-letter month abbreviation
+- deaths — number of deaths reported for that CHSA and month
 
 This format is convenient for analysis with SQL, pandas, R, or other data-processing tools.
 
@@ -166,15 +166,15 @@ but extracted PDF text can instead arrange the values into vertical blocks.
 
 The parser therefore:
 
-    - Extracts text from the PDF.
-    - Splits the extracted text into pages.
-    - Locates the CHSA rows using their four-digit codes.
-    - Collects the numeric blocks following the CHSA rows.
-    - Determines whether an annual Total block precedes the monthly blocks.
-    - Recovers the twelve monthly values.
-    - Associates each monthly value with its CHSA.
-    - Removes duplicate year/CHSA/month combinations.
-    - Sorts the complete dataset into a stable order.
+- Extracts text from the PDF.
+- Splits the extracted text into pages.
+- Locates the CHSA rows using their four-digit codes.
+- Collects the numeric blocks following the CHSA rows.
+- Determines whether an annual Total block precedes the monthly blocks.
+- Recovers the twelve monthly values.
+- Associates each monthly value with its CHSA.
+- Removes duplicate year/CHSA/month combinations.
+- Sorts the complete dataset into a stable order.
 
 The parser also attempts to detect report revisions where the annual total and monthly columns appear in different positions.
 
@@ -212,9 +212,9 @@ See the `Cargo.toml` for the depedendency list.
 
 The generated records are sorted by:
 
-    1. year
-    2. CHSA code
-    3. month
+1. year
+2. CHSA code
+3. month
 
 This provides stable output ordering across runs.
 
