@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cargo run --release -- \
+    --from 2007 \
+    --to 2026 \
+    --wide

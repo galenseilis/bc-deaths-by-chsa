@@ -1,0 +1,13 @@
+[package]
+name = "bc-deaths-by-chsa"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1"
+chrono = "0.4.45"
+clap = { version = "4", features = ["derive"] }
+csv = "1"
+pdf-extract = "0.12"
+reqwest = { version = "0.13", features = ["blocking", "rustls"] }
+serde = { version = "1", features = ["derive"] }
