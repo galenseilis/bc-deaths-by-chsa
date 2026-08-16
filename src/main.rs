@@ -60,7 +60,7 @@ struct DeathRecord {
 }
 
 #[derive(Debug, Clone)]
-struct Chsa {
+struct CHSA {
     code: String,
     name: String,
 }
@@ -548,7 +548,7 @@ fn detect_monthly_start(numbers: &[u32], n: usize) -> Result<usize> {
         .context("could not determine monthly column position")
 }
 
-fn parse_chsa(line: &str) -> Option<Chsa> {
+fn parse_chsa(line: &str) -> Option<CHSA> {
     let mut parts = line.splitn(2, char::is_whitespace);
 
     let code = parts.next()?;
@@ -563,7 +563,7 @@ fn parse_chsa(line: &str) -> Option<Chsa> {
         return None;
     }
 
-    Some(Chsa {
+    Some(CHSA {
         code: code.to_string(),
         name: name.to_string(),
     })
