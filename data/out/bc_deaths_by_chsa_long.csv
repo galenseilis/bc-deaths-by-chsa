@@ -13686,11 +13686,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1110,Fernie,May,6
 2026,1110,Fernie,Jun,15
 2026,1110,Fernie,Jul,9
-2026,1110,Fernie,Aug,0
-2026,1110,Fernie,Sep,0
-2026,1110,Fernie,Oct,0
-2026,1110,Fernie,Nov,0
-2026,1110,Fernie,Dec,0
 2026,1120,Cranbrook,Jan,38
 2026,1120,Cranbrook,Feb,33
 2026,1120,Cranbrook,Mar,22
@@ -13698,11 +13693,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1120,Cranbrook,May,17
 2026,1120,Cranbrook,Jun,22
 2026,1120,Cranbrook,Jul,23
-2026,1120,Cranbrook,Aug,0
-2026,1120,Cranbrook,Sep,0
-2026,1120,Cranbrook,Oct,0
-2026,1120,Cranbrook,Nov,0
-2026,1120,Cranbrook,Dec,0
 2026,1130,Kimberley,Jan,10
 2026,1130,Kimberley,Feb,9
 2026,1130,Kimberley,Mar,10
@@ -13710,11 +13700,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1130,Kimberley,May,10
 2026,1130,Kimberley,Jun,10
 2026,1130,Kimberley,Jul,6
-2026,1130,Kimberley,Aug,0
-2026,1130,Kimberley,Sep,0
-2026,1130,Kimberley,Oct,0
-2026,1130,Kimberley,Nov,0
-2026,1130,Kimberley,Dec,0
 2026,1140,Windermere,Jan,11
 2026,1140,Windermere,Feb,11
 2026,1140,Windermere,Mar,13
@@ -13722,11 +13707,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1140,Windermere,May,6
 2026,1140,Windermere,Jun,13
 2026,1140,Windermere,Jul,15
-2026,1140,Windermere,Aug,0
-2026,1140,Windermere,Sep,0
-2026,1140,Windermere,Oct,0
-2026,1140,Windermere,Nov,0
-2026,1140,Windermere,Dec,0
 2026,1150,Creston,Jan,21
 2026,1150,Creston,Feb,14
 2026,1150,Creston,Mar,15
@@ -13734,11 +13714,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1150,Creston,May,18
 2026,1150,Creston,Jun,13
 2026,1150,Creston,Jul,12
-2026,1150,Creston,Aug,0
-2026,1150,Creston,Sep,0
-2026,1150,Creston,Oct,0
-2026,1150,Creston,Nov,0
-2026,1150,Creston,Dec,0
 2026,1160,Golden,Jan,1
 2026,1160,Golden,Feb,4
 2026,1160,Golden,Mar,6
@@ -13746,11 +13721,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1160,Golden,May,1
 2026,1160,Golden,Jun,3
 2026,1160,Golden,Jul,3
-2026,1160,Golden,Aug,0
-2026,1160,Golden,Sep,0
-2026,1160,Golden,Oct,0
-2026,1160,Golden,Nov,0
-2026,1160,Golden,Dec,0
 2026,1210,Kootenay Lake,Jan,6
 2026,1210,Kootenay Lake,Feb,0
 2026,1210,Kootenay Lake,Mar,2
@@ -13758,11 +13728,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1210,Kootenay Lake,May,2
 2026,1210,Kootenay Lake,Jun,3
 2026,1210,Kootenay Lake,Jul,4
-2026,1210,Kootenay Lake,Aug,0
-2026,1210,Kootenay Lake,Sep,0
-2026,1210,Kootenay Lake,Oct,0
-2026,1210,Kootenay Lake,Nov,0
-2026,1210,Kootenay Lake,Dec,0
 2026,1220,Nelson,Jan,20
 2026,1220,Nelson,Feb,12
 2026,1220,Nelson,Mar,21
@@ -13770,11 +13735,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1220,Nelson,May,20
 2026,1220,Nelson,Jun,22
 2026,1220,Nelson,Jul,14
-2026,1220,Nelson,Aug,0
-2026,1220,Nelson,Sep,0
-2026,1220,Nelson,Oct,0
-2026,1220,Nelson,Nov,0
-2026,1220,Nelson,Dec,0
 2026,1230,Castlegar,Jan,10
 2026,1230,Castlegar,Feb,15
 2026,1230,Castlegar,Mar,10
@@ -13782,11 +13742,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1230,Castlegar,May,11
 2026,1230,Castlegar,Jun,12
 2026,1230,Castlegar,Jul,8
-2026,1230,Castlegar,Aug,0
-2026,1230,Castlegar,Sep,0
-2026,1230,Castlegar,Oct,0
-2026,1230,Castlegar,Nov,0
-2026,1230,Castlegar,Dec,0
 2026,1240,Arrow Lakes,Jan,7
 2026,1240,Arrow Lakes,Feb,3
 2026,1240,Arrow Lakes,Mar,8
@@ -13794,11 +13749,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1240,Arrow Lakes,May,12
 2026,1240,Arrow Lakes,Jun,2
 2026,1240,Arrow Lakes,Jul,2
-2026,1240,Arrow Lakes,Aug,0
-2026,1240,Arrow Lakes,Sep,0
-2026,1240,Arrow Lakes,Oct,0
-2026,1240,Arrow Lakes,Nov,0
-2026,1240,Arrow Lakes,Dec,0
 2026,1250,Trail,Jan,24
 2026,1250,Trail,Feb,24
 2026,1250,Trail,Mar,23
@@ -13806,11 +13756,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1250,Trail,May,18
 2026,1250,Trail,Jun,19
 2026,1250,Trail,Jul,12
-2026,1250,Trail,Aug,0
-2026,1250,Trail,Sep,0
-2026,1250,Trail,Oct,0
-2026,1250,Trail,Nov,0
-2026,1250,Trail,Dec,0
 2026,1260,Grand Forks,Jan,16
 2026,1260,Grand Forks,Feb,12
 2026,1260,Grand Forks,Mar,15
@@ -13818,11 +13763,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1260,Grand Forks,May,16
 2026,1260,Grand Forks,Jun,12
 2026,1260,Grand Forks,Jul,9
-2026,1260,Grand Forks,Aug,0
-2026,1260,Grand Forks,Sep,0
-2026,1260,Grand Forks,Oct,0
-2026,1260,Grand Forks,Nov,0
-2026,1260,Grand Forks,Dec,0
 2026,1270,Kettle Valley,Jan,10
 2026,1270,Kettle Valley,Feb,2
 2026,1270,Kettle Valley,Mar,5
@@ -13830,11 +13770,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1270,Kettle Valley,May,5
 2026,1270,Kettle Valley,Jun,1
 2026,1270,Kettle Valley,Jul,1
-2026,1270,Kettle Valley,Aug,0
-2026,1270,Kettle Valley,Sep,0
-2026,1270,Kettle Valley,Oct,0
-2026,1270,Kettle Valley,Nov,0
-2026,1270,Kettle Valley,Dec,0
 2026,1310,Southern Okanagan,Jan,39
 2026,1310,Southern Okanagan,Feb,20
 2026,1310,Southern Okanagan,Mar,26
@@ -13842,11 +13777,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1310,Southern Okanagan,May,27
 2026,1310,Southern Okanagan,Jun,24
 2026,1310,Southern Okanagan,Jul,32
-2026,1310,Southern Okanagan,Aug,0
-2026,1310,Southern Okanagan,Sep,0
-2026,1310,Southern Okanagan,Oct,0
-2026,1310,Southern Okanagan,Nov,0
-2026,1310,Southern Okanagan,Dec,0
 2026,1320,Penticton,Jan,67
 2026,1320,Penticton,Feb,71
 2026,1320,Penticton,Mar,64
@@ -13854,11 +13784,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1320,Penticton,May,57
 2026,1320,Penticton,Jun,53
 2026,1320,Penticton,Jul,44
-2026,1320,Penticton,Aug,0
-2026,1320,Penticton,Sep,0
-2026,1320,Penticton,Oct,0
-2026,1320,Penticton,Nov,0
-2026,1320,Penticton,Dec,0
 2026,1330,Keremeos,Jan,14
 2026,1330,Keremeos,Feb,7
 2026,1330,Keremeos,Mar,11
@@ -13866,11 +13791,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1330,Keremeos,May,10
 2026,1330,Keremeos,Jun,2
 2026,1330,Keremeos,Jul,7
-2026,1330,Keremeos,Aug,0
-2026,1330,Keremeos,Sep,0
-2026,1330,Keremeos,Oct,0
-2026,1330,Keremeos,Nov,0
-2026,1330,Keremeos,Dec,0
 2026,1340,Princeton,Jan,3
 2026,1340,Princeton,Feb,4
 2026,1340,Princeton,Mar,12
@@ -13878,11 +13798,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1340,Princeton,May,12
 2026,1340,Princeton,Jun,14
 2026,1340,Princeton,Jul,9
-2026,1340,Princeton,Aug,0
-2026,1340,Princeton,Sep,0
-2026,1340,Princeton,Oct,0
-2026,1340,Princeton,Nov,0
-2026,1340,Princeton,Dec,0
 2026,1350,Armstrong/Spallumcheen,Jan,9
 2026,1350,Armstrong/Spallumcheen,Feb,5
 2026,1350,Armstrong/Spallumcheen,Mar,10
@@ -13890,11 +13805,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1350,Armstrong/Spallumcheen,May,8
 2026,1350,Armstrong/Spallumcheen,Jun,7
 2026,1350,Armstrong/Spallumcheen,Jul,10
-2026,1350,Armstrong/Spallumcheen,Aug,0
-2026,1350,Armstrong/Spallumcheen,Sep,0
-2026,1350,Armstrong/Spallumcheen,Oct,0
-2026,1350,Armstrong/Spallumcheen,Nov,0
-2026,1350,Armstrong/Spallumcheen,Dec,0
 2026,1361,Vernon Centre/Coldstream,Jan,58
 2026,1361,Vernon Centre/Coldstream,Feb,72
 2026,1361,Vernon Centre/Coldstream,Mar,70
@@ -13902,11 +13812,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1361,Vernon Centre/Coldstream,May,53
 2026,1361,Vernon Centre/Coldstream,Jun,63
 2026,1361,Vernon Centre/Coldstream,Jul,54
-2026,1361,Vernon Centre/Coldstream,Aug,0
-2026,1361,Vernon Centre/Coldstream,Sep,0
-2026,1361,Vernon Centre/Coldstream,Oct,0
-2026,1361,Vernon Centre/Coldstream,Nov,0
-2026,1361,Vernon Centre/Coldstream,Dec,0
 2026,1362,North Okanagan/Lumby,Jan,13
 2026,1362,North Okanagan/Lumby,Feb,16
 2026,1362,North Okanagan/Lumby,Mar,13
@@ -13914,11 +13819,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1362,North Okanagan/Lumby,May,19
 2026,1362,North Okanagan/Lumby,Jun,12
 2026,1362,North Okanagan/Lumby,Jul,6
-2026,1362,North Okanagan/Lumby,Aug,0
-2026,1362,North Okanagan/Lumby,Sep,0
-2026,1362,North Okanagan/Lumby,Oct,0
-2026,1362,North Okanagan/Lumby,Nov,0
-2026,1362,North Okanagan/Lumby,Dec,0
 2026,1371,Central Okanagan Rural West,Jan,8
 2026,1371,Central Okanagan Rural West,Feb,8
 2026,1371,Central Okanagan Rural West,Mar,3
@@ -13926,11 +13826,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1371,Central Okanagan Rural West,May,9
 2026,1371,Central Okanagan Rural West,Jun,2
 2026,1371,Central Okanagan Rural West,Jul,7
-2026,1371,Central Okanagan Rural West,Aug,0
-2026,1371,Central Okanagan Rural West,Sep,0
-2026,1371,Central Okanagan Rural West,Oct,0
-2026,1371,Central Okanagan Rural West,Nov,0
-2026,1371,Central Okanagan Rural West,Dec,0
 2026,1372,West Kelowna,Jan,39
 2026,1372,West Kelowna,Feb,45
 2026,1372,West Kelowna,Mar,50
@@ -13938,11 +13833,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1372,West Kelowna,May,39
 2026,1372,West Kelowna,Jun,36
 2026,1372,West Kelowna,Jul,43
-2026,1372,West Kelowna,Aug,0
-2026,1372,West Kelowna,Sep,0
-2026,1372,West Kelowna,Oct,0
-2026,1372,West Kelowna,Nov,0
-2026,1372,West Kelowna,Dec,0
 2026,1373,Lake Country,Jan,6
 2026,1373,Lake Country,Feb,10
 2026,1373,Lake Country,Mar,13
@@ -13950,11 +13840,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1373,Lake Country,May,4
 2026,1373,Lake Country,Jun,12
 2026,1373,Lake Country,Jul,7
-2026,1373,Lake Country,Aug,0
-2026,1373,Lake Country,Sep,0
-2026,1373,Lake Country,Oct,0
-2026,1373,Lake Country,Nov,0
-2026,1373,Lake Country,Dec,0
 2026,1374,Glenmore,Jan,32
 2026,1374,Glenmore,Feb,33
 2026,1374,Glenmore,Mar,26
@@ -13962,11 +13847,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1374,Glenmore,May,24
 2026,1374,Glenmore,Jun,34
 2026,1374,Glenmore,Jul,24
-2026,1374,Glenmore,Aug,0
-2026,1374,Glenmore,Sep,0
-2026,1374,Glenmore,Oct,0
-2026,1374,Glenmore,Nov,0
-2026,1374,Glenmore,Dec,0
 2026,1375,Downtown Kelowna,Jan,72
 2026,1375,Downtown Kelowna,Feb,70
 2026,1375,Downtown Kelowna,Mar,57
@@ -13974,11 +13854,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1375,Downtown Kelowna,May,54
 2026,1375,Downtown Kelowna,Jun,49
 2026,1375,Downtown Kelowna,Jul,57
-2026,1375,Downtown Kelowna,Aug,0
-2026,1375,Downtown Kelowna,Sep,0
-2026,1375,Downtown Kelowna,Oct,0
-2026,1375,Downtown Kelowna,Nov,0
-2026,1375,Downtown Kelowna,Dec,0
 2026,1376,Rutland,Jan,30
 2026,1376,Rutland,Feb,29
 2026,1376,Rutland,Mar,31
@@ -13986,11 +13861,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1376,Rutland,May,25
 2026,1376,Rutland,Jun,33
 2026,1376,Rutland,Jul,18
-2026,1376,Rutland,Aug,0
-2026,1376,Rutland,Sep,0
-2026,1376,Rutland,Oct,0
-2026,1376,Rutland,Nov,0
-2026,1376,Rutland,Dec,0
 2026,1377,Okanagan Mission,Jan,25
 2026,1377,Okanagan Mission,Feb,10
 2026,1377,Okanagan Mission,Mar,13
@@ -13998,11 +13868,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1377,Okanagan Mission,May,6
 2026,1377,Okanagan Mission,Jun,12
 2026,1377,Okanagan Mission,Jul,8
-2026,1377,Okanagan Mission,Aug,0
-2026,1377,Okanagan Mission,Sep,0
-2026,1377,Okanagan Mission,Oct,0
-2026,1377,Okanagan Mission,Nov,0
-2026,1377,Okanagan Mission,Dec,0
 2026,1378,Central Okanagan Rural East,Jan,2
 2026,1378,Central Okanagan Rural East,Feb,0
 2026,1378,Central Okanagan Rural East,Mar,0
@@ -14010,11 +13875,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1378,Central Okanagan Rural East,May,2
 2026,1378,Central Okanagan Rural East,Jun,0
 2026,1378,Central Okanagan Rural East,Jul,0
-2026,1378,Central Okanagan Rural East,Aug,0
-2026,1378,Central Okanagan Rural East,Sep,0
-2026,1378,Central Okanagan Rural East,Oct,0
-2026,1378,Central Okanagan Rural East,Nov,0
-2026,1378,Central Okanagan Rural East,Dec,0
 2026,1380,Summerland,Jan,15
 2026,1380,Summerland,Feb,11
 2026,1380,Summerland,Mar,21
@@ -14022,11 +13882,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1380,Summerland,May,16
 2026,1380,Summerland,Jun,17
 2026,1380,Summerland,Jul,8
-2026,1380,Summerland,Aug,0
-2026,1380,Summerland,Sep,0
-2026,1380,Summerland,Oct,0
-2026,1380,Summerland,Nov,0
-2026,1380,Summerland,Dec,0
 2026,1390,Enderby,Jan,7
 2026,1390,Enderby,Feb,8
 2026,1390,Enderby,Mar,7
@@ -14034,11 +13889,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1390,Enderby,May,6
 2026,1390,Enderby,Jun,5
 2026,1390,Enderby,Jul,6
-2026,1390,Enderby,Aug,0
-2026,1390,Enderby,Sep,0
-2026,1390,Enderby,Oct,0
-2026,1390,Enderby,Nov,0
-2026,1390,Enderby,Dec,0
 2026,1410,Revelstoke,Jan,1
 2026,1410,Revelstoke,Feb,6
 2026,1410,Revelstoke,Mar,9
@@ -14046,11 +13896,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1410,Revelstoke,May,6
 2026,1410,Revelstoke,Jun,4
 2026,1410,Revelstoke,Jul,6
-2026,1410,Revelstoke,Aug,0
-2026,1410,Revelstoke,Sep,0
-2026,1410,Revelstoke,Oct,0
-2026,1410,Revelstoke,Nov,0
-2026,1410,Revelstoke,Dec,0
 2026,1420,Salmon Arm,Jan,59
 2026,1420,Salmon Arm,Feb,37
 2026,1420,Salmon Arm,Mar,46
@@ -14058,11 +13903,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1420,Salmon Arm,May,38
 2026,1420,Salmon Arm,Jun,38
 2026,1420,Salmon Arm,Jul,34
-2026,1420,Salmon Arm,Aug,0
-2026,1420,Salmon Arm,Sep,0
-2026,1420,Salmon Arm,Oct,0
-2026,1420,Salmon Arm,Nov,0
-2026,1420,Salmon Arm,Dec,0
 2026,1431,Kamloops Centre North,Jan,72
 2026,1431,Kamloops Centre North,Feb,57
 2026,1431,Kamloops Centre North,Mar,62
@@ -14070,11 +13910,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1431,Kamloops Centre North,May,52
 2026,1431,Kamloops Centre North,Jun,41
 2026,1431,Kamloops Centre North,Jul,43
-2026,1431,Kamloops Centre North,Aug,0
-2026,1431,Kamloops Centre North,Sep,0
-2026,1431,Kamloops Centre North,Oct,0
-2026,1431,Kamloops Centre North,Nov,0
-2026,1431,Kamloops Centre North,Dec,0
 2026,1432,Kamloops Centre South,Jan,49
 2026,1432,Kamloops Centre South,Feb,40
 2026,1432,Kamloops Centre South,Mar,37
@@ -14082,11 +13917,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1432,Kamloops Centre South,May,31
 2026,1432,Kamloops Centre South,Jun,36
 2026,1432,Kamloops Centre South,Jul,30
-2026,1432,Kamloops Centre South,Aug,0
-2026,1432,Kamloops Centre South,Sep,0
-2026,1432,Kamloops Centre South,Oct,0
-2026,1432,Kamloops Centre South,Nov,0
-2026,1432,Kamloops Centre South,Dec,0
 2026,1433,Lower Thompson,Jan,19
 2026,1433,Lower Thompson,Feb,24
 2026,1433,Lower Thompson,Mar,10
@@ -14094,11 +13924,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1433,Lower Thompson,May,13
 2026,1433,Lower Thompson,Jun,15
 2026,1433,Lower Thompson,Jul,11
-2026,1433,Lower Thompson,Aug,0
-2026,1433,Lower Thompson,Sep,0
-2026,1433,Lower Thompson,Oct,0
-2026,1433,Lower Thompson,Nov,0
-2026,1433,Lower Thompson,Dec,0
 2026,1440,100 Mile House,Jan,20
 2026,1440,100 Mile House,Feb,17
 2026,1440,100 Mile House,Mar,24
@@ -14106,11 +13931,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1440,100 Mile House,May,15
 2026,1440,100 Mile House,Jun,17
 2026,1440,100 Mile House,Jul,12
-2026,1440,100 Mile House,Aug,0
-2026,1440,100 Mile House,Sep,0
-2026,1440,100 Mile House,Oct,0
-2026,1440,100 Mile House,Nov,0
-2026,1440,100 Mile House,Dec,0
 2026,1450,North Thompson,Jan,7
 2026,1450,North Thompson,Feb,4
 2026,1450,North Thompson,Mar,2
@@ -14118,11 +13938,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1450,North Thompson,May,2
 2026,1450,North Thompson,Jun,6
 2026,1450,North Thompson,Jul,4
-2026,1450,North Thompson,Aug,0
-2026,1450,North Thompson,Sep,0
-2026,1450,North Thompson,Oct,0
-2026,1450,North Thompson,Nov,0
-2026,1450,North Thompson,Dec,0
 2026,1461,West Cariboo,Jan,3
 2026,1461,West Cariboo,Feb,2
 2026,1461,West Cariboo,Mar,4
@@ -14130,11 +13945,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1461,West Cariboo,May,2
 2026,1461,West Cariboo,Jun,4
 2026,1461,West Cariboo,Jul,2
-2026,1461,West Cariboo,Aug,0
-2026,1461,West Cariboo,Sep,0
-2026,1461,West Cariboo,Oct,0
-2026,1461,West Cariboo,Nov,0
-2026,1461,West Cariboo,Dec,0
 2026,1462,Williams Lake/East Cariboo,Jan,24
 2026,1462,Williams Lake/East Cariboo,Feb,23
 2026,1462,Williams Lake/East Cariboo,Mar,18
@@ -14142,11 +13952,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1462,Williams Lake/East Cariboo,May,25
 2026,1462,Williams Lake/East Cariboo,Jun,24
 2026,1462,Williams Lake/East Cariboo,Jul,17
-2026,1462,Williams Lake/East Cariboo,Aug,0
-2026,1462,Williams Lake/East Cariboo,Sep,0
-2026,1462,Williams Lake/East Cariboo,Oct,0
-2026,1462,Williams Lake/East Cariboo,Nov,0
-2026,1462,Williams Lake/East Cariboo,Dec,0
 2026,1470,Lillooet,Jan,5
 2026,1470,Lillooet,Feb,5
 2026,1470,Lillooet,Mar,6
@@ -14154,11 +13959,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1470,Lillooet,May,8
 2026,1470,Lillooet,Jun,1
 2026,1470,Lillooet,Jul,2
-2026,1470,Lillooet,Aug,0
-2026,1470,Lillooet,Sep,0
-2026,1470,Lillooet,Oct,0
-2026,1470,Lillooet,Nov,0
-2026,1470,Lillooet,Dec,0
 2026,1480,South Cariboo,Jan,5
 2026,1480,South Cariboo,Feb,6
 2026,1480,South Cariboo,Mar,7
@@ -14166,11 +13966,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1480,South Cariboo,May,6
 2026,1480,South Cariboo,Jun,9
 2026,1480,South Cariboo,Jul,5
-2026,1480,South Cariboo,Aug,0
-2026,1480,South Cariboo,Sep,0
-2026,1480,South Cariboo,Oct,0
-2026,1480,South Cariboo,Nov,0
-2026,1480,South Cariboo,Dec,0
 2026,1490,Merritt,Jan,18
 2026,1490,Merritt,Feb,15
 2026,1490,Merritt,Mar,14
@@ -14178,11 +13973,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,1490,Merritt,May,16
 2026,1490,Merritt,Jun,9
 2026,1490,Merritt,Jul,12
-2026,1490,Merritt,Aug,0
-2026,1490,Merritt,Sep,0
-2026,1490,Merritt,Oct,0
-2026,1490,Merritt,Nov,0
-2026,1490,Merritt,Dec,0
 2026,2110,Hope,Jan,13
 2026,2110,Hope,Feb,16
 2026,2110,Hope,Mar,15
@@ -14190,11 +13980,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2110,Hope,May,9
 2026,2110,Hope,Jun,13
 2026,2110,Hope,Jul,5
-2026,2110,Hope,Aug,0
-2026,2110,Hope,Sep,0
-2026,2110,Hope,Oct,0
-2026,2110,Hope,Nov,0
-2026,2110,Hope,Dec,0
 2026,2121,South Chilliwack,Jan,41
 2026,2121,South Chilliwack,Feb,35
 2026,2121,South Chilliwack,Mar,47
@@ -14202,11 +13987,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2121,South Chilliwack,May,42
 2026,2121,South Chilliwack,Jun,44
 2026,2121,South Chilliwack,Jul,22
-2026,2121,South Chilliwack,Aug,0
-2026,2121,South Chilliwack,Sep,0
-2026,2121,South Chilliwack,Oct,0
-2026,2121,South Chilliwack,Nov,0
-2026,2121,South Chilliwack,Dec,0
 2026,2122,North Chilliwack,Jan,61
 2026,2122,North Chilliwack,Feb,48
 2026,2122,North Chilliwack,Mar,56
@@ -14214,11 +13994,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2122,North Chilliwack,May,39
 2026,2122,North Chilliwack,Jun,45
 2026,2122,North Chilliwack,Jul,40
-2026,2122,North Chilliwack,Aug,0
-2026,2122,North Chilliwack,Sep,0
-2026,2122,North Chilliwack,Oct,0
-2026,2122,North Chilliwack,Nov,0
-2026,2122,North Chilliwack,Dec,0
 2026,2131,Central Abbotsford,Jan,31
 2026,2131,Central Abbotsford,Feb,31
 2026,2131,Central Abbotsford,Mar,40
@@ -14226,11 +14001,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2131,Central Abbotsford,May,30
 2026,2131,Central Abbotsford,Jun,33
 2026,2131,Central Abbotsford,Jul,23
-2026,2131,Central Abbotsford,Aug,0
-2026,2131,Central Abbotsford,Sep,0
-2026,2131,Central Abbotsford,Oct,0
-2026,2131,Central Abbotsford,Nov,0
-2026,2131,Central Abbotsford,Dec,0
 2026,2132,East Abbotsford,Jan,17
 2026,2132,East Abbotsford,Feb,22
 2026,2132,East Abbotsford,Mar,15
@@ -14238,11 +14008,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2132,East Abbotsford,May,15
 2026,2132,East Abbotsford,Jun,18
 2026,2132,East Abbotsford,Jul,17
-2026,2132,East Abbotsford,Aug,0
-2026,2132,East Abbotsford,Sep,0
-2026,2132,East Abbotsford,Oct,0
-2026,2132,East Abbotsford,Nov,0
-2026,2132,East Abbotsford,Dec,0
 2026,2133,West Abbotsford,Jan,47
 2026,2133,West Abbotsford,Feb,50
 2026,2133,West Abbotsford,Mar,54
@@ -14250,11 +14015,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2133,West Abbotsford,May,43
 2026,2133,West Abbotsford,Jun,30
 2026,2133,West Abbotsford,Jul,43
-2026,2133,West Abbotsford,Aug,0
-2026,2133,West Abbotsford,Sep,0
-2026,2133,West Abbotsford,Oct,0
-2026,2133,West Abbotsford,Nov,0
-2026,2133,West Abbotsford,Dec,0
 2026,2134,Abbotsford Rural,Jan,13
 2026,2134,Abbotsford Rural,Feb,13
 2026,2134,Abbotsford Rural,Mar,21
@@ -14262,11 +14022,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2134,Abbotsford Rural,May,15
 2026,2134,Abbotsford Rural,Jun,12
 2026,2134,Abbotsford Rural,Jul,10
-2026,2134,Abbotsford Rural,Aug,0
-2026,2134,Abbotsford Rural,Sep,0
-2026,2134,Abbotsford Rural,Oct,0
-2026,2134,Abbotsford Rural,Nov,0
-2026,2134,Abbotsford Rural,Dec,0
 2026,2141,South Mission,Jan,17
 2026,2141,South Mission,Feb,21
 2026,2141,South Mission,Mar,29
@@ -14274,11 +14029,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2141,South Mission,May,26
 2026,2141,South Mission,Jun,15
 2026,2141,South Mission,Jul,26
-2026,2141,South Mission,Aug,0
-2026,2141,South Mission,Sep,0
-2026,2141,South Mission,Oct,0
-2026,2141,South Mission,Nov,0
-2026,2141,South Mission,Dec,0
 2026,2142,North Mission,Jan,11
 2026,2142,North Mission,Feb,21
 2026,2142,North Mission,Mar,12
@@ -14286,11 +14036,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2142,North Mission,May,12
 2026,2142,North Mission,Jun,17
 2026,2142,North Mission,Jul,5
-2026,2142,North Mission,Aug,0
-2026,2142,North Mission,Sep,0
-2026,2142,North Mission,Oct,0
-2026,2142,North Mission,Nov,0
-2026,2142,North Mission,Dec,0
 2026,2150,Agassiz/Harrison,Jan,12
 2026,2150,Agassiz/Harrison,Feb,12
 2026,2150,Agassiz/Harrison,Mar,20
@@ -14298,11 +14043,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2150,Agassiz/Harrison,May,8
 2026,2150,Agassiz/Harrison,Jun,10
 2026,2150,Agassiz/Harrison,Jul,7
-2026,2150,Agassiz/Harrison,Aug,0
-2026,2150,Agassiz/Harrison,Sep,0
-2026,2150,Agassiz/Harrison,Oct,0
-2026,2150,Agassiz/Harrison,Nov,0
-2026,2150,Agassiz/Harrison,Dec,0
 2026,2211,New Westminster - East,Jan,30
 2026,2211,New Westminster - East,Feb,24
 2026,2211,New Westminster - East,Mar,19
@@ -14310,11 +14050,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2211,New Westminster - East,May,15
 2026,2211,New Westminster - East,Jun,8
 2026,2211,New Westminster - East,Jul,19
-2026,2211,New Westminster - East,Aug,0
-2026,2211,New Westminster - East,Sep,0
-2026,2211,New Westminster - East,Oct,0
-2026,2211,New Westminster - East,Nov,0
-2026,2211,New Westminster - East,Dec,0
 2026,2212,New Westminster - Central,Jan,9
 2026,2212,New Westminster - Central,Feb,14
 2026,2212,New Westminster - Central,Mar,14
@@ -14322,11 +14057,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2212,New Westminster - Central,May,13
 2026,2212,New Westminster - Central,Jun,11
 2026,2212,New Westminster - Central,Jul,6
-2026,2212,New Westminster - Central,Aug,0
-2026,2212,New Westminster - Central,Sep,0
-2026,2212,New Westminster - Central,Oct,0
-2026,2212,New Westminster - Central,Nov,0
-2026,2212,New Westminster - Central,Dec,0
 2026,2213,New Westminster - Downtown,Jan,4
 2026,2213,New Westminster - Downtown,Feb,3
 2026,2213,New Westminster - Downtown,Mar,8
@@ -14334,11 +14064,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2213,New Westminster - Downtown,May,2
 2026,2213,New Westminster - Downtown,Jun,1
 2026,2213,New Westminster - Downtown,Jul,2
-2026,2213,New Westminster - Downtown,Aug,0
-2026,2213,New Westminster - Downtown,Sep,0
-2026,2213,New Westminster - Downtown,Oct,0
-2026,2213,New Westminster - Downtown,Nov,0
-2026,2213,New Westminster - Downtown,Dec,0
 2026,2214,New Westminster - West/Queensborou,Jan,11
 2026,2214,New Westminster - West/Queensborou,Feb,3
 2026,2214,New Westminster - West/Queensborou,Mar,4
@@ -14346,11 +14071,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2214,New Westminster - West/Queensborou,May,9
 2026,2214,New Westminster - West/Queensborou,Jun,5
 2026,2214,New Westminster - West/Queensborou,Jul,5
-2026,2214,New Westminster - West/Queensborou,Aug,0
-2026,2214,New Westminster - West/Queensborou,Sep,0
-2026,2214,New Westminster - West/Queensborou,Oct,0
-2026,2214,New Westminster - West/Queensborou,Nov,0
-2026,2214,New Westminster - West/Queensborou,Dec,0
 2026,2221,Burnaby Heights/Capital Hill,Jan,17
 2026,2221,Burnaby Heights/Capital Hill,Feb,22
 2026,2221,Burnaby Heights/Capital Hill,Mar,16
@@ -14358,11 +14078,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2221,Burnaby Heights/Capital Hill,May,16
 2026,2221,Burnaby Heights/Capital Hill,Jun,11
 2026,2221,Burnaby Heights/Capital Hill,Jul,12
-2026,2221,Burnaby Heights/Capital Hill,Aug,0
-2026,2221,Burnaby Heights/Capital Hill,Sep,0
-2026,2221,Burnaby Heights/Capital Hill,Oct,0
-2026,2221,Burnaby Heights/Capital Hill,Nov,0
-2026,2221,Burnaby Heights/Capital Hill,Dec,0
 2026,2222,Brentwood/Willingdon/Parkcrest,Jan,16
 2026,2222,Brentwood/Willingdon/Parkcrest,Feb,11
 2026,2222,Brentwood/Willingdon/Parkcrest,Mar,7
@@ -14370,11 +14085,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2222,Brentwood/Willingdon/Parkcrest,May,10
 2026,2222,Brentwood/Willingdon/Parkcrest,Jun,12
 2026,2222,Brentwood/Willingdon/Parkcrest,Jul,10
-2026,2222,Brentwood/Willingdon/Parkcrest,Aug,0
-2026,2222,Brentwood/Willingdon/Parkcrest,Sep,0
-2026,2222,Brentwood/Willingdon/Parkcrest,Oct,0
-2026,2222,Brentwood/Willingdon/Parkcrest,Nov,0
-2026,2222,Brentwood/Willingdon/Parkcrest,Dec,0
 2026,2223,Westridge/Sperling/Gov't Road,Jan,12
 2026,2223,Westridge/Sperling/Gov't Road,Feb,12
 2026,2223,Westridge/Sperling/Gov't Road,Mar,10
@@ -14382,11 +14092,6 @@ year,chsa_code,chsa_name,month,deaths
 2026,2223,Westridge/Sperling/Gov't Road,May,8
 2026,2223,Westridge/Sperling/Gov't Road,Jun,13
 2026,2223,Westridge/Sperling/Gov't Road,Jul,7
-2026,2223,Westridge/Sperling/Gov't Road,Aug,0
-2026,2223,Westridge/Sperling/Gov't Road,Sep,0
-2026,2223,Westridge/Sperling/Gov't Road,Oct,0
-2026,2223,Westridge/Sperling/Gov't Road,Nov,0
-2026,2223,Westridge/Sperling/Gov't Road,Dec,0
 2026,2224,Burnaby Mountain/Lougheed,Jan,10
 2026,2224,Burnaby Mountain/Lougheed,Feb,9
 2026,2224,Burnaby Mountain/Lougheed,Mar,10
@@ -14394,8 +14099,3 @@ year,chsa_code,chsa_name,month,deaths
 2026,2224,Burnaby Mountain/Lougheed,May,8
 2026,2224,Burnaby Mountain/Lougheed,Jun,7
 2026,2224,Burnaby Mountain/Lougheed,Jul,11
-2026,2224,Burnaby Mountain/Lougheed,Aug,0
-2026,2224,Burnaby Mountain/Lougheed,Sep,0
-2026,2224,Burnaby Mountain/Lougheed,Oct,0
-2026,2224,Burnaby Mountain/Lougheed,Nov,0
-2026,2224,Burnaby Mountain/Lougheed,Dec,0

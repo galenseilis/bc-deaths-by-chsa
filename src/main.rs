@@ -1,5 +1,5 @@
 use anyhow::{Context, Result, bail};
-use chrono::{Datelike, Local};
+use chrono::{Datelike, Local, NaiveDate};
 use clap::Parser;
 use csv::Writer;
 use pdf_extract::extract_text_from_mem;
@@ -65,6 +65,12 @@ struct Chsa {
     name: String,
 }
 
+#[derive(Debug)]
+struct ParsedReport {
+    reporting_date: NaiveDate,
+    records: Vec<DeathRecord>,
+}
+
 fn main() -> Result<()> {
     let args = Args::parse();
 
@@ -84,14 +90,24 @@ fn main() -> Result<()> {
     let mut successful_years = Vec::new();
     let mut missing_years = Vec::new();
 
+    let mut latest_reporting_date: Option<NaiveDate> = None;
+
     for year in args.from..=args.to {
         println!("== {year} ==");
 
         match process_year(&client, year, &args.pdf_dir, args.force) {
-            Ok(records) => {
-                println!("  extracted {} records", records.len());
+            Ok(report) => {
+                println!("  reporting date: {}", report.reporting_date);
+                println!("  extracted {} records", report.records.len());
+
+                latest_reporting_date = Some(
+                    latest_reporting_date
+                        .map(|date| date.max(report.reporting_date))
+                        .unwrap_or(report.reporting_date),
+                );
+
                 successful_years.push(year);
-                all_records.extend(records);
+                all_records.extend(report.records);
             }
             Err(err) => {
                 eprintln!("  skipped {year}: {err:#}");
@@ -103,6 +119,43 @@ fn main() -> Result<()> {
     if all_records.is_empty() {
         bail!("No reports could be parsed");
     }
+
+    let latest_reporting_date = latest_reporting_date.context("No reporting dates were found")?;
+
+    println!();
+    println!("Latest reporting date: {latest_reporting_date}");
+
+    /*
+     * The current report contains the current month and all remaining
+     * months of the year as zero-valued placeholders.
+     *
+     * Therefore, for historical data, retain only months strictly
+     * before the reporting month.
+     *
+     * Example:
+     *
+     *     reporting date = 2026-08-01
+     *
+     *     retain through = 2026-07
+     *
+     *     discard       = 2026-08 through 2026-12
+     */
+    let cutoff = (latest_reporting_date.year(), latest_reporting_date.month());
+
+    let before_filter = all_records.len();
+
+    all_records.retain(|record| {
+        let record_month = month_number(&record.month) as u32;
+        (record.year as i32, record_month) < cutoff
+    });
+
+    let removed = before_filter - all_records.len();
+
+    println!(
+        "Removed {removed} records at or after the reporting month \
+         (historical cutoff: {}-{:#02})",
+        cutoff.0, cutoff.1
+    );
 
     // Stable ordering is useful for reproducible datasets.
     all_records.sort_by(|a, b| {
@@ -135,12 +188,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn process_year(
-    client: &Client,
-    year: u16,
-    pdf_dir: &Path,
-    force: bool,
-) -> Result<Vec<DeathRecord>> {
+fn process_year(client: &Client, year: u16, pdf_dir: &Path, force: bool) -> Result<ParsedReport> {
     let filename = format!("deaths-by-chsa-{year}.pdf");
     let path = pdf_dir.join(&filename);
 
@@ -173,9 +221,11 @@ fn process_year(
     parse_report(year, &bytes)
 }
 
-fn parse_report(year: u16, pdf: &[u8]) -> Result<Vec<DeathRecord>> {
+fn parse_report(year: u16, pdf: &[u8]) -> Result<ParsedReport> {
     let text = extract_text_from_mem(pdf)
         .with_context(|| format!("could not extract PDF text for {year}"))?;
+
+    let reporting_date = extract_reporting_date(year, &text)?;
 
     let pages = split_pages(&text);
 
@@ -202,7 +252,134 @@ fn parse_report(year: u16, pdf: &[u8]) -> Result<Vec<DeathRecord>> {
 
     records.retain(|r| seen.insert((r.year, r.chsa_code.clone(), r.month.clone())));
 
-    Ok(records)
+    Ok(ParsedReport {
+        reporting_date,
+        records,
+    })
+}
+
+/// Extract the report's reporting date from the PDF text.
+///
+/// The report date is expected to occur near text such as:
+///
+///     Reporting Date: August 1, 2026
+///
+/// or:
+///
+///     Report Date August 01 2026
+///
+/// We deliberately only consider lines containing date/reporting
+/// terminology so that dates elsewhere in the PDF are not accidentally
+/// interpreted as the reporting date.
+fn extract_reporting_date(year: u16, text: &str) -> Result<NaiveDate> {
+    for raw_line in text.lines() {
+        let line = normalize_line(raw_line);
+        let lower = line.to_lowercase();
+
+        let looks_like_reporting_date = lower.contains("reporting date")
+            || lower.contains("report date")
+            || lower.contains("reporting as of")
+            || lower.contains("data as of")
+            || lower.contains("as of");
+
+        if !looks_like_reporting_date {
+            continue;
+        }
+
+        if let Some(date) = parse_date_from_line(&line) {
+            return Ok(date);
+        }
+    }
+
+    bail!(
+        "could not find reporting date in {year} PDF; \
+         inspect the extracted PDF text for the date format"
+    )
+}
+
+/// Look for a conventional month/day/year date in a line.
+///
+/// Handles forms such as:
+///
+///     August 1, 2026
+///     August 01 2026
+///     Aug 1 2026
+///
+/// We also accept ISO-style dates:
+///
+///     2026-08-01
+fn parse_date_from_line(line: &str) -> Option<NaiveDate> {
+    let cleaned = line.replace(',', " ").replace('/', " ").replace('-', " ");
+
+    let tokens: Vec<&str> = cleaned.split_whitespace().collect();
+
+    for i in 0..tokens.len() {
+        // Month-name form:
+        //
+        //     August 1 2026
+        //     Aug 1 2026
+        if let Some(month) = month_name_number(tokens[i]) {
+            if i + 2 < tokens.len() {
+                let day = tokens[i + 1].parse::<u32>().ok()?;
+                let year = tokens[i + 2].parse::<i32>().ok()?;
+
+                if (1900..=2100).contains(&year) && (1..=31).contains(&day) {
+                    if let Some(date) = NaiveDate::from_ymd_opt(year, month, day) {
+                        return Some(date);
+                    }
+                }
+            }
+        }
+
+        // Numeric form after replacement:
+        //
+        //     2026 08 01
+        //
+        // or:
+        //
+        //     08 01 2026
+        if i + 2 < tokens.len() {
+            let a = tokens[i].parse::<u32>().ok();
+            let b = tokens[i + 1].parse::<u32>().ok();
+            let c = tokens[i + 2].parse::<u32>().ok();
+
+            if let (Some(a), Some(b), Some(c)) = (a, b, c) {
+                // YYYY MM DD
+                if (1900..=2100).contains(&(a as i32)) {
+                    if let Some(date) = NaiveDate::from_ymd_opt(a as i32, b, c) {
+                        return Some(date);
+                    }
+                }
+
+                // MM DD YYYY
+                if (1900..=2100).contains(&(c as i32)) {
+                    if let Some(date) = NaiveDate::from_ymd_opt(c as i32, a, b) {
+                        return Some(date);
+                    }
+                }
+            }
+        }
+    }
+
+    None
+}
+
+fn month_name_number(month: &str) -> Option<u32> {
+    match month.trim().to_lowercase().as_str() {
+        "january" | "jan" => Some(1),
+        "february" | "feb" => Some(2),
+        "march" | "mar" => Some(3),
+        "april" | "apr" => Some(4),
+        "may" => Some(5),
+        "june" | "jun" => Some(6),
+        "july" | "jul" => Some(7),
+        "august" | "aug" => Some(8),
+        "september" | "sep" | "sept" => Some(9),
+        "october" | "oct" => Some(10),
+        "november" | "nov" => Some(11),
+        "december" | "dec" => Some(12),
+        _ => None,
+    }
 }
 
 /// pdf-extract separates pages with form-feed characters in these reports.
@@ -303,19 +480,6 @@ fn parse_page(year: u16, page: &str) -> Result<Vec<DeathRecord>> {
         );
     }
 
-    /*
-     * Usually numbers starts with the annual Total column:
-     *
-     *     Total[0..n]
-     *     Jan[0..n]
-     *     Feb[0..n]
-     *     ...
-     *
-     * Some report revisions put the monthly columns first.
-     *
-     * Determine which layout we have by looking for a plausible
-     * annual-total relationship.
-     */
     let monthly_start = detect_monthly_start(&numbers, n)?;
 
     let mut out = Vec::with_capacity(n * 12);
@@ -362,7 +526,6 @@ fn detect_monthly_start(numbers: &[u32], n: usize) -> Result<usize> {
         for row in 0..n {
             let total: u32 = (0..12).map(|month| numbers[offset + month * n + row]).sum();
 
-            // If offset == n, compare the first block to the sum.
             if offset == n {
                 let annual_total = numbers[row];
 
@@ -373,7 +536,6 @@ fn detect_monthly_start(numbers: &[u32], n: usize) -> Result<usize> {
         }
 
         if offset == 0 {
-            // No annual-total block. Give this candidate a neutral score.
             matches = 1;
         }
 
