@@ -21,12 +21,15 @@ The tool retrieves reports published by the Government of British Columbia, cach
 - Rust and Cargo
 - Internet access when reports need to be downloaded.
 
+You may need to install additional supports for fonts on Ubuntu.
+
 ## Installation
 
 
 ```bash
 git clone  https://github.com/galenseilis/bc-deaths-by-chsa.git
 cd <repository_directory>  
+./setup
 cargo build --release
 ```
 
