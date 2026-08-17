@@ -382,13 +382,62 @@ fn month_name_number(month: &str) -> Option<u32> {
     }
 }
 
-/// pdf-extract separates pages with form-feed characters in these reports.
+/// Split extracted PDF text into per-page segments.
+///
+/// Ideally `pdf-extract` separates pages with form-feed characters, but
+/// some versions (and some PDFs) omit them.  When that happens we fall
+/// back to splitting on the `Page  X of  Y` headers that every BC
+/// report contains.
 fn split_pages(text: &str) -> Vec<String> {
-    text.split('\x0c')
+    // Fast path: form-feed separated pages.
+    let pages: Vec<String> = text
+        .split('\x0c')
         .map(str::trim)
         .filter(|p| !p.is_empty())
         .map(ToOwned::to_owned)
-        .collect()
+        .collect();
+
+    if pages.len() > 1 {
+        return pages;
+    }
+
+    // Fallback: split on "Page  N of  M" header lines.
+    split_on_page_markers(text)
+}
+
+fn split_on_page_markers(text: &str) -> Vec<String> {
+    // Collect the byte offset of every line that looks like "Page  N of  M".
+    let mut page_starts: Vec<usize> = Vec::new();
+    let mut offset = 0usize;
+
+    for line in text.lines() {
+        let trimmed = line.trim();
+        if trimmed.starts_with("Page ") && trimmed.contains(" of ") {
+            page_starts.push(offset);
+        }
+        offset += line.len() + 1; // +1 for the '\n'
+    }
+
+    if page_starts.len() < 2 {
+        return vec![text.to_owned()];
+    }
+
+    let mut pages = Vec::new();
+
+    for window in page_starts.windows(2) {
+        let segment = text[window[0]..window[1]].trim().to_owned();
+        if !segment.is_empty() {
+            pages.push(segment);
+        }
+    }
+
+    // Last page.
+    let last = text[*page_starts.last().unwrap()..].trim().to_owned();
+    if !last.is_empty() {
+        pages.push(last);
+    }
+
+    pages
 }
 
 /// Parse one PDF page.
@@ -549,6 +598,15 @@ fn detect_monthly_start(numbers: &[u32], n: usize) -> Result<usize> {
 }
 
 fn parse_chsa(line: &str) -> Option<CHSA> {
+    // The reports include an "Unknown CHSA" row for deaths whose
+    // residential postal code could not be mapped to a CHSA.
+    if line.starts_with("Unknown CHSA") {
+        return Some(CHSA {
+            code: "UNKN".to_string(),
+            name: "Unknown CHSA".to_string(),
+        });
+    }
+
     let mut parts = line.splitn(2, char::is_whitespace);
 
     let code = parts.next()?;

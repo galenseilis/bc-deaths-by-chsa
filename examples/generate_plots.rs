@@ -6,7 +6,7 @@ use plotters::prelude::*;
 #[derive(Debug, Deserialize)]
 struct Record {
     year: u64,
-    chsa_code: u64,
+    chsa_code: String,
     chsa_name: String,
     month: String,
     deaths: u64,
@@ -58,7 +58,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut bc_totals: BTreeMap<TimeKey, u64> = BTreeMap::new();
 
-    let mut chsa_totals: BTreeMap<u64, (String, BTreeMap<TimeKey, u64>)> = BTreeMap::new();
+    let mut chsa_totals: BTreeMap<String, (String, BTreeMap<TimeKey, u64>)> = BTreeMap::new();
 
     for result in reader.deserialize() {
         let record: Record = result?;
@@ -197,7 +197,7 @@ fn plot_bc_total(totals: &BTreeMap<TimeKey, u64>, output_dir: &str) -> Result<()
 }
 
 fn plot_chsa_totals(
-    totals: &BTreeMap<u64, (String, BTreeMap<TimeKey, u64>)>,
+    totals: &BTreeMap<String, (String, BTreeMap<TimeKey, u64>)>,
     output_dir: &str,
 ) -> Result<(), Box<dyn Error>> {
     for (chsa_code, (chsa_name, series)) in totals {
